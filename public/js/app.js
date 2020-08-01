@@ -1927,6 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -43608,6 +43609,8 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
+      _c("h3", [_vm._v("Conectados")]),
+      _vm._v(" "),
       _vm._l(_vm.users, function(user) {
         return _c("p", { key: user.id }, [_vm._v(_vm._s(user.name))])
       }),

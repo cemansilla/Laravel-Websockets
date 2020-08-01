@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Events\Notificacion;
+
 class HomeController extends Controller
 {
     /**
@@ -27,7 +30,7 @@ class HomeController extends Controller
     }
     
     public function notify(User $user){
-        //Notification::dispatch($user);
+        Notificacion::dispatch($user);
     }
 
     public function room($id){

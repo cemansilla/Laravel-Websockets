@@ -1,5 +1,6 @@
 <template>
 	<div class="container">
+		<h3>Conectados</h3>
 		<p v-for="user in users" :key="user.id">{{ user.name }}</p>
 
 		<div class="row justify-content-center mt-5">
