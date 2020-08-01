@@ -10,22 +10,20 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class EventSocket implements ShouldBroadcast
+class RoomEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $task;
+    public $room;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($task)
+    public function __construct($room)
     {
-        $this->task = $task; 
-        // Prevento que el la notificación sea enviada al usuario que la genera, esto para evitar duplicados
-        $this->dontBroadcastToCurrentUser();
+        $this->room = $room;
     }
 
     /**
@@ -35,6 +33,6 @@ class EventSocket implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('canal');
+        return new PresenceChannel('room.' . $this->room);
     }
 }
